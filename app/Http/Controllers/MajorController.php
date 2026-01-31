@@ -56,16 +56,17 @@ class MajorController extends Controller
      */
     public function show(Major $major)
     {
-        //
+
     }
 
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Major $major)
+    public function edit($id)
     {
-        //
+        $major = Major::findORFail($id);
+        return view('Majors.edit', compact('major'));
     }
 
 
@@ -74,7 +75,7 @@ class MajorController extends Controller
      */
     public function update(Request $request, Major $major)
     {
-        //
+        
     }
 
     /**

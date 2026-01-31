@@ -22,7 +22,7 @@
                                 <tr>
                                     <th>Nom</th>
                                     <th>Created at</th>
-                                    <th class="text-center">Actions</th>
+                                    <th class="text-end">Actions</th>
                                 </tr>
                             </thead>
 
@@ -32,20 +32,20 @@
                                 <tr>
                                     <td class="fw-semibold">{{ $major->name }}</td>
                                     <td>{{ $major->created_at->diffForHumans() }}</td>
-                                    <td class="text-center">
-                                        <div class="d-flex justify-content-center gap-2">
+                                    <td class="text-end">
+                                        <div class="d-flex justify-content-end gap-2">
 
-                                            <button class="btn btn-outline-success btn-sm"
-                                                title="edit"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#editMajor {{ $major->id }}">
+                                            <a href="{{ route(' }}"
+                                                class="btn btn-outline-success btn-sm"
+                                                title="edit">
                                                 <i class="bi bi-pencil"></i>
-                                            </button>
+                                            </a>
+
 
                                             <button class="btn btn-outline-danger btn-sm"
                                                 title="delete"
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#deleteMajor {{ $major->id }}">
+                                                data-bs-target="#deleteMajor{{ $major->id }}">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
