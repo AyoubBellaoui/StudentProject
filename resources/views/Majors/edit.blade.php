@@ -25,6 +25,7 @@
                                 name="name"
                                 id="name"
                                 placeholder="Ex : Web Development"
+                                value="{{ old('name', $major->name) }}"
                                 class="form-control @error('name') is-invalid @enderror"
                                 >
 

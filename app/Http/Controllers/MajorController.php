@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Major;
 use Illuminate\Http\Request;
 
+use function Flasher\Prime\flash;
+
 class MajorController extends Controller
 {
     /**
@@ -73,9 +75,23 @@ class MajorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Major $major)
+    public function update(Request $request, $id)
     {
-        
+        $request->validate([
+
+            'name' => 'required|string|min:2'
+        ]);
+
+        $major = Major::findOrfail($id);
+
+        $major->update([
+
+            'name' => $request->name,
+        ]);
+
+        flash()->success('Major updated successfully!');
+
+        return redirect()->route('Major.list');
     }
 
     /**

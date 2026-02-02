@@ -35,7 +35,7 @@
                                     <td class="text-end">
                                         <div class="d-flex justify-content-end gap-2">
 
-                                            <a href="{{ route(' }}"
+                                            <a href="{{ route('Major.edit', $major->id) }}"
                                                 class="btn btn-outline-success btn-sm"
                                                 title="edit">
                                                 <i class="bi bi-pencil"></i>
