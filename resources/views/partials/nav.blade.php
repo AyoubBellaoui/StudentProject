@@ -17,12 +17,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('Major.list') }}">Majors</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('logout') }}">logout</a>
-                </li>
             </ul>
         </div>
     </div>
