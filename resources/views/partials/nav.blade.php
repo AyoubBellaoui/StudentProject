@@ -12,10 +12,10 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Students</a>
+                    <a class="nav-link" href="{{ route('student.list') }}">Students</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('Major.list') }}">Majors</a>
+                    <a class="nav-link" href="{{ route('major.list') }}">Majors</a>
                 </li>
             </ul>
         </div>

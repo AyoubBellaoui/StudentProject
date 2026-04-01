@@ -12,21 +12,21 @@ Route::get('/', function () {
     return view('pages.app');
 })->name('Homepage');
 
-// CRUD operations Route (Major)
-Route::get('/create/major', [MajorController::class, 'create'])->name('Major.create');
-Route::post('/store/major', [MajorController::class, 'store'])->name('Major.store');
-Route::get('/list/majors', [MajorController::class, 'index'])->name('Major.list');
-Route::get('/majors/{id}/edit', [MajorController::class, 'edit'])->name('Major.edit');
-Route::put('/majors/{id}/update', [MajorController::class, 'update'])->name('Major.update');
-Route::delete('/delete/major/{id}', [MajorController::class, 'destroy'])->name('Major.delete');
+// CRUD Operations Route (Major)
+Route::get('/create/major', [MajorController::class, 'create'])->name('major.create');
+Route::post('/store/major', [MajorController::class, 'store'])->name('major.store');
+Route::get('/list/majors', [MajorController::class, 'index'])->name('major.list');
+Route::get('/majors/{id}/edit', [MajorController::class, 'edit'])->name('major.edit');
+Route::put('/majors/{id}/update', [MajorController::class, 'update'])->name('major.update');
+Route::delete('/delete/major/{id}', [MajorController::class, 'destroy'])->name('major.delete');
 
-// CRUD operations Route (Student)
+// CRUD Operations Route (Student)
 Route::get('/create/student', [StudentController::class, 'create'])->name('student.create');
 Route::post('/store/student', [StudentController::class, 'store'])->name('student.store');
 Route::get('/list/students', [StudentController::class, 'index'])->name('student.list');
 Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('student.edit');
 Route::put('/students/{id}/update', [StudentController::class, 'update'])->name('student.update');
-Route::delete('/delete/student/{id}', [StudentController::class, 'destroy'])->name('student.delete');
+Route::delete('/delete/student/{id}', [StudentController::class, 'destroy'])->name('student.delete'); 
 
 
 

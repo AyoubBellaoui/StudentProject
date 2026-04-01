@@ -10,6 +10,17 @@ class Student extends Model
         'fullname',
         'date_of_birth',
         'gender',
+        'image',
         'major_id'
     ];
+
+    public function major() {
+
+        return $this->belongsTo(Major::class);
+
+    }
+
 }
+
+
+

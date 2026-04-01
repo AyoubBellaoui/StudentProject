@@ -94,6 +94,7 @@ class MajorController extends Controller
         return redirect()->route('Major.list');
     }
 
+
     /**
      * Remove the specified resource from storage.
      */

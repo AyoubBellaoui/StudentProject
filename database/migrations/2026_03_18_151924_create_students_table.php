@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('fullname');
             $table->date('date_of_birth');
             $table->enum('gender', ['male', 'female']);
-            $table->foreignId('major_id');
+            $table->string('image')->nullable();
+            $table->foreignId('major_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

@@ -8,9 +8,9 @@
             <div class="card shadow-sm border-0 rounded-3">
                 <div class="card-header bg-dark text-white rounded-top">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">List of Majors</h5>
-                        <a href="{{ route('major.create') }}" class="btn btn-light btn-sm">
-                            + Add Major
+                        <h5 class="mb-0">List of Students</h5>
+                        <a href="{{ route('student.create') }}" class="btn btn-light btn-sm">
+                            + Add Student
                         </a>
                     </div>
                 </div>
@@ -20,22 +20,28 @@
                         <table class="table align-middle table-hover">
                             <thead class="table-light">
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Fullname</th>
+                                    <th>Date of Birth</th>
+                                    <th>Gender</th>
+                                    <th>Major</th>
                                     <th>Created at</th>
                                     <th class="text-end">Actions</th>
                                 </tr>
                             </thead>
 
                             <tbody>
-                                @if ($majors->count() > 0)
-                                @foreach ($majors as $major)
+                                @if ($students->count() > 0)
+                                @foreach ($students as $student)
                                 <tr>
-                                    <td class="fw-semibold">{{ $major->name }}</td>
-                                    <td>{{ $major->created_at->diffForHumans() }}</td>
+                                    <td class="fw-semibold">{{ $student->fullname }}</td>
+                                    <td class="fw-semibold">{{ $student->date_of_birth }}</td>
+                                    <td class="fw-semibold">{{ $student->gender }}</td>
+                                    <td class="fw-semibold">{{ $student->major_id }}</td>
+                                    <td>{{ $student->created_at->diffForHumans() }}</td>
                                     <td class="text-end">
                                         <div class="d-flex justify-content-end gap-2">
 
-                                            <a href="{{ route('major.edit', $major->id) }}"
+                                            <a href="{{ route('student.edit', $student->id) }}"
                                                 class="btn btn-outline-success btn-sm"
                                                 title="edit">
                                                 <i class="bi bi-pencil"></i>
@@ -45,14 +51,14 @@
                                             <button class="btn btn-outline-danger btn-sm"
                                                 title="delete"
                                                 data-bs-toggle="modal"
-                                                data-bs-target="#deleteMajor{{ $major->id }}">
+                                                data-bs-target="#deletestudent{{ $student->id }}">
                                                 <i class="bi bi-trash"></i>
                                             </button>
                                         </div>
 
                                         {{-- Modal --}}
                                         <div class="modal fade"
-                                            id="deleteMajor{{ $major->id }}"
+                                            id="deletestudent{{ $student->id }}"
                                             tabindex="-1"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
@@ -66,14 +72,14 @@
                                                             data-bs-dismiss="modal"></button>
                                                     </div>
 
-                                                    <form action="{{ route('major.delete', $major->id) }}" method="POST">
+                                                    <form action="{{ route('student.delete', $student->id) }}" method="POST">
                                                         @csrf
                                                         @method('DELETE')
 
                                                         <div class="modal-body">
                                                             <p class="mb-0">
-                                                                Are you sure you want to delete this major:
-                                                                <strong>{{ $major->name }}</strong>?
+                                                                Are you sure you want to delete this student:
+                                                                <strong>{{ $student->name }}</strong>?
                                                             </p>
                                                         </div>
 
@@ -98,7 +104,7 @@
                                 @else
                                 <tr>
                                     <td colspan="4" class="text-center text-muted py-4">
-                                        Major not found.
+                                        Student not found.
                                     </td>
                                 </tr>
                                 @endif

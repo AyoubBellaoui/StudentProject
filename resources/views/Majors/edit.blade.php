@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="card-body p-4">
-                    <form action="{{ route('Major.update', $major->id) }}" method="POST">
+                    <form action="{{ route('major.update', $major->id) }}" method="POST">
                         @csrf
                         @method('PUT')
 
