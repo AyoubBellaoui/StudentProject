@@ -36,7 +36,7 @@
                                     <td class="fw-semibold">{{ $student->fullname }}</td>
                                     <td class="fw-semibold">{{ $student->date_of_birth }}</td>
                                     <td class="fw-semibold">{{ $student->gender }}</td>
-                                    <td class="fw-semibold">{{ $student->major_id }}</td>
+                                    <td class="fw-semibold">{{ $student->major->name ?? 'No Major' }}</td>
                                     <td>{{ $student->created_at->diffForHumans() }}</td>
                                     <td class="text-end">
                                         <div class="d-flex justify-content-end gap-2">
