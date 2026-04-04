@@ -9,16 +9,28 @@ use Illuminate\Http\Request;
 class StudentController extends Controller
 {
     /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $students = Student::with('major')->get();
+        return view('Students.list', compact('students'));
+    }
+
+    /**
      * Show the form for creating a new resource.
      */
-    public function create() {
-
+    public function create(Request $request)
+    {
         $majors = Major::all();
         return view('Students.create', compact('majors'));
     }
 
-    public function store(Request $request) {
-
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
         $request->validate([
             'fullname'         => 'required|min:2',
             'date_of_birth'    => 'required',
@@ -37,17 +49,38 @@ class StudentController extends Controller
 
         flash()->success('Student created successfully !');
 
-        return redirect()->route('Homepage');
+        return redirect()->route('student.list');
     }
 
-    public function index() {
-
-        $students = Student::with('major')->get();
-        return view('Students.list', compact('students'));
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
     }
 
-    public function destroy($id) {
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
 
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
         Student::destroy($id);
         flash()->success('Student deleted successfully!');
         return back();
