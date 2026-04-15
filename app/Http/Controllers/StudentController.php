@@ -63,17 +63,47 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $student = Student::findOrFail($id);
+        $majors = Major::all();
+
+        return view('Students.edit', compact('student', 'majors'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $student = Student::findOrFail($id);
+
+        $request->validate([
+            'fullname'      => 'required|min:2',
+            'date_of_birth' => 'required',
+            'gender'        => 'required',
+            'image'         => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'major_id'      => 'required|exists:majors,id',
+        ]);
+
+        // Check if new image uploaded
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('students', 'public');
+        } else {
+            $imagePath = $student->image;
+        }
+
+        $student->update([
+            'fullname'      => $request->fullname,
+            'date_of_birth' => $request->date_of_birth,
+            'gender'        => $request->gender,
+            'image'         => $imagePath,
+            'major_id'      => $request->major_id,
+        ]);
+
+        flash()->success('Student updated successfully!');
+
+        return redirect()->route('student.list');
     }
 
     /**
