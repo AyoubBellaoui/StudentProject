@@ -28,7 +28,7 @@
                             <label class="form-label">Date of Birth</label>
                             <input type="date" name="date_of_birth"
                                 value="{{ old('date_of_birth', $student->date_of_birth) }}"
-                                class="form-control">
+                                9class="form-control">
                         </div>
 
                         <!-- Gender -->
