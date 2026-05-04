@@ -13,7 +13,7 @@ Route::get('/', function () {
 })->name('Homepage');
 
 // CRUD Operations Route (Major)
-Route::get('/create/major', [MajorController::class, 'create'])->name('major.create');
+Route::get('/create/major', [MajorController::class, 'create'])->name('major.create'); 
 Route::post('/store/major', [MajorController::class, 'store'])->name('major.store');
 Route::get('/list/majors', [MajorController::class, 'index'])->name('major.list');
 Route::get('/majors/{id}/edit', [MajorController::class, 'edit'])->name('major.edit');
@@ -26,7 +26,7 @@ Route::post('/store/student', [StudentController::class, 'store'])->name('studen
 Route::get('/list/students', [StudentController::class, 'index'])->name('student.list');
 Route::get('/students/{id}/edit', [StudentController::class, 'edit'])->name('student.edit');
 Route::put('/students/{id}/update', [StudentController::class, 'update'])->name('student.update');
-Route::delete('/delete/student/{id}', [StudentController::class, 'destroy'])->name('student.delete'); 
+Route::delete('/delete/student/{id}', [StudentController::class, 'destroy'])->name('student.delete');
 
 
 
